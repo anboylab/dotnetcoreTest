@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CMS.Web.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +11,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace CMS.Web
 {
+    /// <summary>
+    /// 啟動配置文件
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -23,6 +27,8 @@ namespace CMS.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.Configure<Content>(Configuration.GetSection("Content"));
+            services.Configure<Content>(Configuration.GetSection("ContentList"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
